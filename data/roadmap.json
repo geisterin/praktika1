@@ -1,0 +1,89 @@
+{
+    "backend": {
+        "title": "Backend arendaja teekaart",
+        "categories": {
+            "Alused": [
+                {
+                    "name": "HTTP & REST",
+                    "description": "Põhitõed HTTP, REST API-de ja kliendi-serveri suhtlusest.",
+                    "video": "https://www.youtube.com/embed/7YcW25PHnAA"
+                },
+                {
+                    "name": "Linux",
+                    "description": "Käsurea kasutamine ja serverite haldamine Linuxis.",
+                    "video": "https://www.youtube.com/embed/ROjZy1WbCIA"
+                }
+            ],
+            "Keeled": [
+                {
+                    "name": "JavaScript (Node.js)",
+                    "description": "JavaScript serveripoolel, kasutades Node.js ja Express.js.",
+                    "video": "https://www.youtube.com/embed/Oe421EPjeBE"
+                },
+                {
+                    "name": "Python (Django, Flask)",
+                    "description": "Django ja Flask raamistikud Pythonis.",
+                    "video": "https://www.youtube.com/embed/o0XbHvKxw7Y"
+                }
+            ]
+        }
+    },
+    "frontend": {
+        "title": "Frontend arendaja teekaart",
+        "categories": {
+            "Alused": [
+                {
+                    "name": "HTML & CSS",
+                    "description": "HTML-i ja CSS-i põhitõed.",
+                    "video": "https://www.youtube.com/embed/mU6anWqZJcc"
+                },
+                {
+                    "name": "JavaScript (ES6+)",
+                    "description": "Moodne JavaScript, ES6+ funktsioonid.",
+                    "video": "https://www.youtube.com/embed/W6NZfCO5SIk"
+                }
+            ],
+            "Keeled": [
+                {
+                    "name": "React.js",
+                    "description": "SPA-de loomine Reactiga.",
+                    "video": "https://www.youtube.com/embed/N3AkSS5hXMA"
+                },
+                {
+                    "name": "Vue.js",
+                    "description": "Vue.js põhiteadmised ja komponentide loomine.",
+                    "video": "https://www.youtube.com/embed/4deVCNJq3qc"
+                }
+            ]
+        }
+    },
+    "fullstack": {
+        "title": "Full Stack arendaja teekaart",
+        "categories": {
+            "Alused": [
+                {
+                    "name": "Git & GitHub",
+                    "description": "Versioonihaldus Gitiga ja töö GitHubis.",
+                    "video": "https://www.youtube.com/embed/RGOj5yH7evk"
+                },
+                {
+                    "name": "REST API & GraphQL",
+                    "description": "REST API-de ja GraphQLi kasutamine.",
+                    "video": "https://www.youtube.com/embed/ed8SzALpx1Q"
+                }
+            ],
+            "Keeled": [
+                {
+                    "name": "MERN Stack (MongoDB, Express, React, Node)",
+                    "description": "Full Stack arendamine MERN stackiga.",
+                    "video": "https://www.youtube.com/embed/7CqJlxBYj-M"
+                },
+                {
+                    "name": "MEVN Stack (MongoDB, Express, Vue, Node)",
+                    "description": "Alternatiivne Full Stack arendamine MEVN stackiga.",
+                    "video": "https://www.youtube.com/embed/Gu2pVPWGYMQ"
+                }
+            ]
+        }
+    }
+}

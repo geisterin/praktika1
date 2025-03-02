@@ -1,0 +1,127 @@
+/* ============================================
+   БОКОВАЯ ПАНЕЛЬ НАВИГАЦИИ
+   ============================================ */
+
+/* Боковая панель */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    transition: 0.3s;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+/* Основной контент */
+.content {
+    margin-left: 60px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+    min-height: 100vh;
+    width: calc(100% - 60px);
+    box-sizing: border-box;
+}
+
+/* Навигационный список */
+.nav-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.nav-list li {
+    position: relative;
+    width: 100%;
+    border-radius: 0 20px 20px 0;
+}
+
+.nav-list li.active {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-list li a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+}
+
+.nav-list .icon {
+    font-size: 20px;
+    text-align: center;
+    width: 30px;
+}
+
+.nav-list .title {
+    padding-left: 15px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+/* Эффект при наведении */
+.sidebar:hover {
+    width: 200px;
+}
+
+.sidebar:hover .title {
+    opacity: 1;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 50px;
+    }
+
+    .content {
+        margin-left: 50px;
+        width: calc(100% - 50px);
+        padding: 15px;
+    }
+
+    .nav-list .title {
+        display: none;
+    }
+
+    .sidebar:hover {
+        width: 180px;
+    }
+
+    .sidebar:hover .nav-list .title {
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 40px;
+    }
+
+    .content {
+        margin-left: 40px;
+        width: calc(100% - 40px);
+        padding: 10px;
+        overflow-x: hidden;
+    }
+
+    .nav-list li a {
+        padding: 8px;
+    }
+
+    .nav-list .icon {
+        font-size: 18px;
+    }
+
+    .sidebar:hover {
+        width: 160px;
+    }
+}

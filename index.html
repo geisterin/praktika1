@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Ключевые слова на русском -->
+    <meta name="keywords" content="новости, технологии, спорт, политика, культура, веб-разработка, программирование, JavaScript, IT, обучение">
+    
+    <!-- Ключевые слова на эстонском -->
+    <meta name="keywords" content="uudised, tehnoloogia, sport, poliitika, kultuur, veebiarendus, programmeerimine, JavaScript, IT, õpe">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praktika1</title>
+    <!-- Подключаем Bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" type="image/png" href="icons/favicon.png" />
+    <style>
+        .glowing-title {
+            font-size: 6em;
+            letter-spacing: 15px;
+            color: #0e3742;
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 1.2;
+            outline: none;
+            animation: glow 2s ease-in-out infinite alternate;
+            -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(0, 0, 0, 0.2));
+        }
+
+        @media (max-width: 768px) {
+            .glowing-title {
+                font-size: 3em;
+                letter-spacing: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .glowing-title {
+                font-size: 2em;
+                letter-spacing: 5px;
+            }
+        }
+
+        @keyframes glow {
+            0% {
+                color: #0e3742;
+                text-shadow: none;
+            }
+            100% {
+                color: #fff;
+                text-shadow: 0 0 10px #03bcf4,
+                           0 0 20px #03bcf4,
+                           0 0 40px #03bcf4,
+                           0 0 80px #03bcf4,
+                           0 0 120px #03bcf4;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Заголовок Praktika1 (отдельно от меню) -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="glowing-title">Praktika1</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Блок с кнопками -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-10 col-md-8 col-lg-6">
+                <div class="menu-buttons d-flex flex-column gap-3 py-4">
+                    <a href="roadmap.html" class="menu-button btn btn-lg w-100">Arendaja Teekaart</a>
+                    <a href="news.html" class="menu-button btn btn-lg w-100">Uudised</a>
+                    <a href="sport.html" class="menu-button btn btn-lg w-100">Sport</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

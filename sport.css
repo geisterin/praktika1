@@ -1,0 +1,576 @@
+/* Базовые настройки для масштабирования страницы */
+html {
+    zoom: 0.9;
+    -moz-transform: scale(0.9);
+    -moz-transform-origin: 0 0;
+    transform: scale(0.9);
+    transform-origin: 0 0;
+}
+
+/* CSS-переменные для светлой темы */
+:root[data-theme="light"] {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --card-bg: #ffffff;
+    --border-color: #dee2e6;
+    --input-bg: #ffffff;
+    --input-text: #333333;
+    --input-border: #dee2e6;
+}
+
+/* CSS-переменные для тёмной темы */
+:root[data-theme="dark"] {
+    --bg-color: #333333;
+    --text-color: #ffffff;
+    --card-bg: rgba(33, 37, 41, 0.85);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --input-bg: rgba(45, 50, 55, 0.85);
+    --input-text: #ffffff;
+    --input-border: rgba(255, 255, 255, 0.2);
+}
+
+/* Основные стили для body */
+body {
+    min-height: 100vh;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+/* Фоновое изображение для светлой темы */
+body[data-theme="light"] {
+    background: url('image2/training.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Фоновое изображение для тёмной темы с затемнением */
+body[data-theme="dark"] {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('image2/bw_training.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Стили для основного контейнера */
+.container {
+    margin-left: 80px;
+    transition: 0.3s;
+}
+
+/* Дополнительные стили контейнера для светлой темы */
+[data-theme="light"] .container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Общие стили для карточек */
+.card {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+    color: var(--text-color);
+}
+
+/* Стили текстовых элементов для тёмной темы */
+[data-theme="dark"] {
+    /* Стили для всех текстовых элементов */
+    --text-color: #fff;
+}
+
+[data-theme="dark"] .card,
+[data-theme="dark"] .form-label,
+[data-theme="dark"] .form-check-label,
+[data-theme="dark"] h1,
+[data-theme="dark"] h5,
+[data-theme="dark"] p,
+[data-theme="dark"] .nav-list li a {
+    color: var(--text-color);
+}
+
+/* Стили для форм */
+.form-control,
+.form-select {
+    background-color: var(--input-bg);
+    border-color: var(--input-border);
+    color: var(--input-text);
+}
+
+
+/* Специальные стили форм для тёмной темы */
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .form-select {
+    background-color: var(--input-bg);
+    border-color: var(--input-border);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="dark"] select option {
+    background-color: var(--input-bg);
+    color: var(--text-color);
+}
+
+/* Стили для бокового меню */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    transition: 0.3s;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.sidebar:hover {
+    width: 200px;
+}
+
+/* Стили для навигационного списка */
+.nav-list {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.nav-list li {
+    position: relative;
+    width: 100%;
+    border-radius: 0 20px 20px 0;
+    transition: all 0.3s ease;
+}
+
+.nav-list li a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 12px 8px;
+    white-space: nowrap;
+}
+
+.nav-list li a .icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    height: 44px;
+    font-size: 20px;
+}
+
+.nav-list li a .title {
+    position: relative;
+    display: block;
+    padding: 0 8px;
+    height: 44px;
+    line-height: 44px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+.sidebar:hover .nav-list li a .title {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav-list li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(10px);
+}
+
+.nav-list li.active {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.nav-list li.active a {
+    color: #4eccd4;
+}
+
+/* Стили для кругового прогресс-бара */
+.progress-bar {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle {
+    transform: rotate(-90deg);
+}
+
+.circle-background,
+.circle-progress {
+    fill: none;
+    stroke-width: 10;
+    stroke-linecap: round;
+}
+
+.circle-background {
+    stroke: #eee;
+}
+
+[data-theme="dark"] .circle-background {
+    stroke: #444;
+}
+
+.circle-progress {
+    stroke: #4eccd4;
+    stroke-dasharray: 339.292;
+    stroke-dashoffset: 339.292;
+    transition: stroke-dashoffset 0.5s ease;
+}
+
+/* Стили для текста процентов */
+.progress-text {
+    position: absolute;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+#progress-label {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .progress-text,
+[data-theme="dark"] #progress-label {
+    color: #fff;
+}
+
+
+/* Стили для кругового прогресс-бара */
+.progress-bar {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle {
+    transform: rotate(-90deg);
+}
+
+.circle-background,
+.circle-progress {
+    fill: none;
+    stroke-width: 10;
+    stroke-linecap: round;
+}
+
+/* Цвета прогресс-бара для разных тем */
+.circle-background {
+    stroke: #eee;
+}
+
+[data-theme="dark"] .circle-background {
+    stroke: #444;
+}
+
+.circle-progress {
+    stroke: #4eccd4;
+    stroke-dasharray: 339.292;
+    stroke-dashoffset: 339.292;
+    transition: stroke-dashoffset 0.5s ease;
+}
+
+/* Стили для переключателя темы */
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+/* Сам слайдер (серый фон) */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: -3px; /* Сдвигаем влево */
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+/* Стили для иконки переключателя */
+.slider:before {
+    content: "🌙";
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    left: 2px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+    font-size: 14px;
+    text-align: center;
+    line-height: 18px;
+}
+
+/* Стили для активного состояния переключателя */
+input:checked + .slider {
+    background-color: #0fbcf9;
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
+    content: "☀️";
+}
+
+/* Адаптивные стили для мобильных устройств */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+/* Общие стили для карточек */
+.card, 
+.workout-card {
+    position: relative;
+    background-color: var(--card-bg);
+    border: none !important;
+    border-radius: 15px !important;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+/* Светлая тема */
+[data-theme="light"] .card,
+[data-theme="light"] .workout-card {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 
+        0 5px 15px rgba(255, 182, 193, 0.3),
+        0 10px 20px rgba(173, 216, 230, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Тёмная тема */
+[data-theme="dark"] .card,
+[data-theme="dark"] .workout-card {
+    background: rgba(33, 37, 41, 0.85);
+    box-shadow: 
+        0 5px 15px rgba(77, 213, 227, 0.2),
+        0 10px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(77, 213, 227, 0.15) !important;
+}
+
+/* Эффекты при наведении */
+.card:hover,
+.workout-card:hover {
+    transform: translateY(-5px);
+}
+
+[data-theme="light"] .card:hover,
+[data-theme="light"] .workout-card:hover {
+    box-shadow: 
+        0 8px 25px rgba(255, 182, 193, 0.4),
+        0 15px 30px rgba(173, 216, 230, 0.3);
+}
+
+[data-theme="dark"] .card:hover,
+[data-theme="dark"] .workout-card:hover {
+    box-shadow: 
+        0 8px 25px rgba(77, 213, 227, 0.3),
+        0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Стили для кнопок */
+.btn-danger {
+    background: linear-gradient(45deg, #ff6b6b, #ff8787) !important;
+    border: none !important;
+    transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(45deg, #ff5252, #ff6b6b) !important;
+    transform: scale(1.05);
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #4eccd4, #45b1e8) !important;
+    border: none !important;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(45deg, #45b1e8, #4eccd4) !important;
+    transform: scale(1.05);
+}
+
+/* Дополнительные стили для статистики */
+.statistics-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+}
+
+/* Стили для текста внутри карточек */
+.card h5,
+.workout-card h5 {
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.card p,
+.workout-card p {
+    color: var(--text-color);
+    opacity: 0.8;
+}
+/* Стили для карточек */
+div.card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 20px !important;
+    padding: 20px !important;
+    margin-bottom: 20px !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Светлая тема */
+[data-theme="light"] div.card {
+    background: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 
+        0 10px 20px rgba(255, 105, 180, 0.1),
+        0 6px 6px rgba(0, 191, 255, 0.1) !important;
+    border: 2px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Тёмная тема */
+[data-theme="dark"] div.card {
+    background: rgba(33, 37, 41, 0.85) !important;
+    box-shadow: 
+        0 10px 20px rgba(77, 213, 227, 0.1),
+        0 6px 6px rgba(0, 0, 0, 0.2) !important;
+    border: 2px solid rgba(77, 213, 227, 0.1) !important;
+}
+
+/* Эффекты при наведении */
+div.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 15px 30px rgba(77, 213, 227, 0.2),
+        0 10px 10px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Кнопки */
+.btn-primary {
+    background: linear-gradient(45deg, #4eccd4, #45b1e8) !important;
+    border: none !important;
+    padding: 8px 16px !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-danger {
+    background: linear-gradient(45deg, #ff6b6b, #ff8787) !important;
+    border: none !important;
+    padding: 8px 16px !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-primary:hover,
+.btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Статистика и прогресс */
+div.card:has(.progress-bar),
+div.card:has(.statistics) {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px);
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media screen and (max-width: 915px) {
+    html {
+        zoom: 1;
+        -moz-transform: none;
+        transform: none;
+    }
+
+    .container {
+        margin-left: 70px;
+        margin-right: 10px;
+        padding: 10px;
+        width: calc(100% - 80px);
+        overflow-x: hidden;
+    }
+
+    .sidebar {
+        width: 50px;
+    }
+
+    .sidebar:hover {
+        width: 180px;
+    }
+
+    .card {
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    .progress-bar {
+        width: 100px;
+        height: 100px;
+    }
+
+    .form-control,
+    .form-select {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* Специфичные настройки для Galaxy S20 Ultra */
+@media screen and (max-width: 412px) {
+    .container {
+        margin-left: 60px;
+        margin-right: 5px;
+        padding: 8px;
+        width: calc(100% - 65px);
+    }
+
+    .sidebar {
+        width: 45px;
+    }
+
+    .nav-list li a .icon {
+        min-width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+
+    .progress-bar {
+        width: 90px;
+        height: 90px;
+    }
+}
